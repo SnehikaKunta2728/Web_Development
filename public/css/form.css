@@ -4,9 +4,6 @@ body{
     margin: 50px auto;
 }
 
-.clear{
-    clear: both;
-}
 
 input[type="submit"]{
     width: 100%;
