@@ -47,5 +47,4 @@ Now that you're more familiar with your Bitbucket repository, go ahead and add a
 ## License & copyright
 
 © Snehika Kunta
-
 Licensed under the [MIT LICENSE](LICENSE).
