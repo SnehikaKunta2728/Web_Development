@@ -1,0 +1,55 @@
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav') %>
+    <div class="allOrders">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Pink Rose Price</th>
+            <th>Pink Rose Quantity</th>
+            <th>Pink Rose Total Price</th>
+            <th>Green Rose Price</th>
+            <th>Green Rose Quantity</th>
+            <th>Green Rose Total Price</th>
+            <th>Red Rose Price</th>
+            <th>Red Rose Quantity</th>
+            <th>Red Rose Total Price</th>
+            <th>Shipping Charges</th>
+            <th>SubTotal</th>
+            <th>Tax</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+                <% 
+                    for(var customer of customers){
+                %>
+                <tr>
+                    <td><%= customer.name %></td>
+                    <td><%= customer.email %></td>
+                    <td><%= customer.phone %></td>
+                    <td><%= customer.address %>,<%= customer.city %>,<%= customer.postCode %>,<%= customer.province %></td>
+                    <td>$12</td>
+                    <td><%= customer.pinkRoseQuantity %></td>
+                    <td>$<%= customer.pinkRosePrice %></td>
+                    <td>$14</td>
+                    <td><%= customer.greenRoseQuantity %></td>
+                    <td>$<%= customer.greenRosePrice %></td>
+                    <td>$10</td>
+                    <td><%= customer.redRoseQuantity %></td>
+                    <td>$<%= customer.redRosePrice %></td>
+                    <td>$<%= customer.shippingCharges %></td>
+                    <td>$<%= customer.subTotal %></td>
+                    <td>$<%= customer.tax %></td>
+                    <td>$<%= customer.total %></td>
+                </tr> 
+                <%
+                    }
+                %>
+        </tbody>
+    </table>
+</div>
+</body>
+<%- include('layouts/footer'); %>

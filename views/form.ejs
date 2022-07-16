@@ -1,0 +1,159 @@
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav') %>
+    <selection class="products">
+        <div class="product1">
+            <img src="images\pinkRose.jpg" width="400" height="345">
+            <h3>Pink Rose Plant<br>$12</h3>
+        </div>
+        <div class="product2">
+            <img src="images\greenRose.jpg" width="400" height="345">
+            <h3>Green Rose Plant<br>$14</h3>
+        </div>
+        <div class="product3">
+            <img src="images\rose.jpg" width="400" height="345">
+            <h3>Red Rose<br>$10</h3>
+        </div>  
+    </selection>
+    <form name="myform" method="Post" onsubmit="formSubmit();"  action="" >
+        <label>Name:</label>
+        <input id="name" placeholder="First Last" type="text" name="name"><br/> <br/>
+  
+        <label>Email:</label>
+        <input id="email" placeholder="email@domain.com" type="text" name="email"><br/> <br/>
+  
+        <label>Phone:</label>
+        <input id="phone" placeholder="123-123-1234" type="phone" name="phone"><br/> <br/>
+  
+        <label>Address:</label>
+        <input id="address" placeholder="521 MilFour Cres" type="text" name="address"><br/> <br/>
+
+        <label>City:</label>
+        <input id="city" placeholder="Waterloo" type="text" name="city"><br/> <br/>
+
+        <label>Post Code:</label>
+        <input id="city" placeholder="M3N 2T2" type="text" name="postCode"><br/> <br/>
+
+        <label>Province:</label>
+        <select name="province" id="province">
+          <option value="">--Select Province--</option>
+          <option value="Alberta">Alberta</option>
+          <option value="British Columbia">British Columbia</option>
+          <option value="Manitoba">Manitoba</option>
+          <option value="New Brunswick">New Brunswick</option>
+          <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+          <option value="Nova Scotia">Nova Scotia</option>
+          <option value="Nunavut">Nunavut</option>
+          <option value="Ontario">Ontario</option>
+          <option value="Prince Edward Island">Prince Edward Island</option>
+          <option value="Quebec">Quebec</option>
+          <option value="Saskatchewan">Saskatchewan</option>
+          <option value="Yukon">Yukon</option>
+        </select>
+
+        <label>Enter pink rose quantity:</label>
+        <input placeholder="Enter pink rose quantity" type="text" name="pinkRoseQuantity"><br/>
+
+        <label>Enter green rose quantity:</label>
+        <input placeholder="Enter green rose quantity" type="text" name="greenRoseQuantity"><br/>
+
+        <label>Enter red rose quantity:</label>
+        <input placeholder="Enter red rose quantity" type="text" name="redRoseQuantity"><br/>
+
+        <label>Delivery Time:</label>
+        <input placeholder="Days" type="number" name="deliveryTime"><br/>
+
+        <br/><br/>
+        <input type="submit" value="Place Order">
+        <p id="errors"></p>
+      </form> 
+      <div class="formData">
+        <% 
+          if (typeof(errors) != 'undefined')
+          {
+            for (let error of errors)
+            {
+        %>
+              <p class="errors"> <%= error.msg %></p>
+        <%
+            }
+          }
+        %> 
+        <%  
+        if (typeof(total) != 'undefined'  && total != '') 
+          {
+        %>
+          <p id="formResult">Your Receipt:</p>
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td> <%= name %> </td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td> <%= email %> </td>
+            </tr>
+            <tr>
+              <th>Phone:</th>
+              <td> <%= phone %> </td>
+            </tr>
+            <tr>
+              <th>Delivery Address:</th>
+              <td><%= address %>,<%= city %>,<%= province %>,<%= postCode %></td>
+            </tr>
+            <% 
+              if(pinkRoseQuantity != "")
+              {
+            %>
+              <tr>
+                <th> <%= pinkRoseQuantity %> Pink Rose @ $12 :</th>
+                <td>$<%= pinkRosePrice %> </td>
+              </tr>
+            <%
+                }
+            %>
+            <% 
+              if(greenRoseQuantity != "")
+              {
+            %>
+              <tr>
+                <th> <%= greenRoseQuantity %> Green Rose @ $14 :</th>
+                <td>$<%= greenRosePrice %> </td>
+              </tr>
+            <%
+              }
+            %>
+            <% 
+                if(redRoseQuantity != "")
+                {
+            %>
+              <tr>
+                  <th> <%= redRoseQuantity %> Red Rose @ $10 :</th>
+                  <td>$<%= redRosePrice %> </td>
+              </tr>
+            <%
+                }
+            %>
+            <tr>
+              <th>Shipping Charges: </th>
+                <td>$20</td>
+            </tr>
+              <tr>
+                <th>Sub Total: </th>
+                <td>$<%= subTotal %></td>
+              </tr>
+              <tr>
+                <th>Taxes @13% :</th>
+                <td>$<%= tax %> </td>
+              </tr>
+              <tr>
+                <th>Total:</th>
+                <td>$<%= total %> </td>
+              </tr>
+          </table>
+        <%
+          }
+        %>  
+      </div>
+</body>
+<%- include('layouts/footer'); %>

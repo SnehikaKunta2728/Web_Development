@@ -1,0 +1,22 @@
+{
+    "dependencies": {
+        "body-parser": "*",
+        "ejs": "*",
+        "express": "^4.17.3",
+        "express-validator": "^6.14.0",
+        "mongoose": "^6.2.8"
+    },
+    "name": "awesomesite",
+    "version": "1.0.0",
+    "description": "For testing and learning creating an Awesome Site. ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "Awesome",
+        "Site"
+    ],
+    "author": "admin",
+    "license": "ISC"
+}
